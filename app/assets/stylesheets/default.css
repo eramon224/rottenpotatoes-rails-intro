@@ -1,4 +1,4 @@
-/* html, body {
+ html, body {
   margin: 0;
   padding: 0;
   background: White;
@@ -48,18 +48,18 @@ table#movies th, table#movies td {
   padding: 4px;
   text-align: left;
 }
+table#movies th.hilite {
+  background-color: yellow;
+}
 #notice #warning {
   background: rosybrown;
   margin: 1em 0;
   padding: 4px;
 }
-table#movies th.hilite {
-  background-color: yellow;
-} */
-/* form label {
+form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
   color: maroon;
-} */
+}
 
