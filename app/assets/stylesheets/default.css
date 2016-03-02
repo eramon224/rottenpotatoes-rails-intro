@@ -47,6 +47,8 @@ table#movies th {
 table#movies th, table#movies td {
   padding: 4px;
   text-align: left;
+}
+table#movies th{
   background-color: yellow;
 }
 #notice #warning {
