@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
   margin: 0;
   padding: 0;
   background: White;
@@ -55,7 +55,7 @@ table#movies th, table#movies td {
 }
 table#movies th.hilite {
   background-color: yellow;
-}
+} */
 /* form label {
   display: block;
   line-height: 25px;
