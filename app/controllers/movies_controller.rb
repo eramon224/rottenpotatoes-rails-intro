@@ -12,15 +12,15 @@ class MoviesController < ApplicationController
 
   def index
     set = Movie.current(params, session)
-	if set[:redirect]
-	  flash.keep
-	  redirect_to(:action => params[:action], :controller => params[:controller], :sort => set[:sort], :ratings => set[:ratings])		
-	end
-	@ratings = Movie.ratings 
-	@filters = set[:ratings]
+    if set[:redirect]
+      flash.keep
+      redirect_to(:action => params[:action], :controller => params[:controller], :sort => set[:sort], :ratings => set[:ratings])		
+    end
+    @ratings = Movie.ratings 
+    @filters = set[:ratings]
     @movies = Movie.movies(@filters, set[:sort])
-	session[:ratings] = set[:ratings]
-	session[:sort] = set[:sort]
+    session[:ratings] = set[:ratings]
+    session[:sort] = set[:sort]
   end
 
   def new
