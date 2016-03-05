@@ -11,7 +11,16 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    set = Movie.current(params, session)
+	if set[:redirect]
+	  flash.keep
+	  redirect_to(:action => params[:action], :controller => params[:controller], :sort => set[:sort], :ratings => set[:ratings])		
+	end
+	@ratings = Movie.ratings 
+	@filters = set[:ratings]
+    @movies = Movie.movies(@filters, set[:sort])
+	session[:ratings] = set[:ratings]
+	session[:sort] = set[:sort]
   end
 
   def new
@@ -41,5 +50,5 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
+  
 end
