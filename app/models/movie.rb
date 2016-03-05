@@ -12,33 +12,32 @@ class Movie < ActiveRecord::Base
   def self.current(params, session)
     setup = {:redirect => false}
 	
-	if params[:ratings].kind_of? Hash
-	  params[:ratings].keys
-	else
-	  params[:ratings]
-	end
+    if params[:ratings].kind_of? Hash
+      params[:ratings].keys
+    else
+      params[:ratings]
+    end
 	
-	setup[:ratings] = if params[:ratings]
-	  if params[:ratings].kind_of? Hash
-	    params[:ratings].keys
-	  else
-	    params[:ratings]
-	  end
-	elsif session[:ratings]
-	  session[:ratings]
-	else
-	  self.ratings
-	end
+    setup[:ratings] = if params[:ratings]
+      if params[:ratings].kind_of? Hash
+        params[:ratings].keys
+      else
+        params[:ratings]
+      end
+    elsif session[:ratings]
+      session[:ratings]
+    else
+      self.ratings
+    end
 	
     setup[:sort] = if params[:sort]
-	  params[:sort]
-	elsif session[:sort]
-	  setup[:redirect] = true
-	  session[:sort]
-	else
-	  nil
-	end
-	return setup
+      params[:sort]
+    elsif session[:sort]
+      setup[:redirect] = true
+      session[:sort]
+    else
+      nil
+    end
+    return setup
   end
-  
 end
